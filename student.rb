@@ -1,8 +1,6 @@
-require_relative 'person'
-
 class Student < Person
-  def initialize(classroomm = 'no classroom', **args)
-    super(**args)
+  def initialize(classroomm = 'no classroom', name: 'Unknown', age: nil, parent_permission: true)
+    super(name: name, age: age, parent_permission: parent_permission)
     @classroomm = classroomm
   end
 
