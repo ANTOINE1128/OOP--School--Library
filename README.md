@@ -88,13 +88,9 @@ In the project directory, you can run:
   irb -r ./index.rb
 ```
 
-### Run tests
 
-No tests available
 
-### Deployment
 
-No deployment of this project
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -117,7 +113,9 @@ No deployment of this project
 ## 🔭 Future Features <a name="future-features"></a>
 
 Future changes:
-- No changes
+- Add Spec Tests
+- Add Basic UI
+- Etc
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
