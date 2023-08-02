@@ -1,7 +1,10 @@
+# student.rb
+require_relative 'person'
+
 class Student < Person
-  def initialize(classroomm = 'no classroom', name: 'Unknown', age: nil, parent_permission: true)
+  def initialize(classroom: 'no classroom', name: 'Unknown', age: nil, parent_permission: true)
     super(name: name, age: age, parent_permission: parent_permission)
-    @classroomm = classroomm
+    @classroom = classroom
   end
 
   def play_hooky
