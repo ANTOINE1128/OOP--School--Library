@@ -1,38 +1,7 @@
-require_relative 'Nameable'
-
-class Decorator < Nameable
-  def initialize(nameable)
-    @nameable = nameable
-    super()
-  end
-
-  def correct_name
-    @nameable.correct
-  end
-end
-
-class TrimmerDecorator < Decorator
-  def initialize(nameable, max_length = 10)
-    @nameable = nameable
-    @max_length = max_length
-    super()
-  end
-
-  def correct_name
-    @nameable.correct_name.slice(0, @max_length)
-  end
-end
-
-class CapitalizeDecorator < Decorator
-  def initialize(nameable)
-    @nameable = nameable
-    super()
-  end
-
-  def correct_name
-    @nameable.correct_name.capitalize
-  end
-end
+require_relative 'nameable'
+require_relative 'Decorator'
+require_relative 'Trimmer_Decorator'
+require_relative 'Capitalize_Decorator'
 
 class Person < Nameable
   def initialize(name, age, parent_permission: true)
