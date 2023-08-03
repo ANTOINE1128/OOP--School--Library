@@ -5,6 +5,8 @@ require_relative 'Trimmer_Decorator'
 require_relative 'Capitalize_Decorator'
 require_relative 'classroom'
 require_relative 'student'
+require_relative 'book'
+require_relative 'rental'
 
 
 
@@ -33,3 +35,25 @@ puts "Classroom Students: #{classroom.students.map(&:name).join(', ')}"
 puts "Student1 Classroom: #{student1.classroom&.label}"
 puts "Student2 Classroom: #{student2.classroom&.label}"
 puts "Student3 Classroom: #{student3.classroom&.label}"
+
+
+
+
+
+
+book1 = Book.new('The Great Gatsby', 'F. Scott Fitzgerald')
+person1 = Person.new(22, 'Maximilianus')
+rental1 = Rental.new('2023-08-03', book1, person1)
+
+# Add the rental to the book's rentals and person's rentals
+book1.add_rental(rental1)
+person1.add_rental(rental1)
+puts "Rentals for #{book1.title}:"
+book1.rentals.each do |rental|
+  puts "#{rental.date}, Rented by: #{rental.person.name}"
+end
+
+puts "Rentals for #{person1.name}:"
+person1.rentals.each do |rental|
+  puts "#{rental.date}, Book: #{rental.book.title}"
+end
