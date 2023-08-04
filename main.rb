@@ -33,9 +33,6 @@ book1 = Book.new('The Great Gatsby', 'F. Scott Fitzgerald')
 person1 = Person.new(22, 'Maximilianus')
 rental1 = Rental.new('2023-08-03', book1, person1)
 puts rental1.person
-
-
-
 # Add the rental to the book's rentals and person's rentals
 book1.add_rental(rental1, person1)
 person1.add_rental(rental1, book1)
