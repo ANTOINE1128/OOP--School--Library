@@ -1,9 +1,4 @@
 require_relative 'nameable'
-# require_relative 'Decorator'
-# require_relative 'Trimmer_Decorator'
-# require_relative 'Capitalize_Decorator'
-# require_relative 'classroom'
-# require_relative 'student'
 
 class Person < Nameable
   attr_accessor :name, :age, :rentals, :book

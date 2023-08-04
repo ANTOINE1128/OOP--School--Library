@@ -19,11 +19,6 @@ classroom = Classroom.new('Math Class')
 student1 = Student.new(classroom, 18, 'Alice')
 student2 = Student.new(classroom, 22, 'das')
 student3 = Student.new(classroom, 33, 'acs')
-# Add students to the classroom
-# classroom.add_student(student1)
-# classroom.add_student(student2)
-# classroom.add_student(student3)
-# Test the relationship
 puts "Classroom Label: #{classroom.label}"
 puts "Classroom Students: #{classroom.students.map(&:name).join(', ')}"
 puts "Student1 Classroom: #{student1.classroom&.label}"
