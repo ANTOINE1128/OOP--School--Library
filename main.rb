@@ -8,34 +8,55 @@ require_relative 'student'
 require_relative 'book'
 require_relative 'rental'
 
-person = Person.new(22, 'maximilianus')
-puts "Person's Correct Name: #{person.correct_name}"
-capitalized_person = CapitalizeDecorator.new(person)
-puts "Capitalized Person's Correct Name: #{capitalized_person.correct_name}"
-capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
-puts "Capitalized and Trimmed Person's Correct Name: #{capitalized_trimmed_person.correct_name}"
-classroom = Classroom.new('Math Class')
-# Create students
-student1 = Student.new(classroom, 18, 'Alice')
-student2 = Student.new(classroom, 22, 'das')
-student3 = Student.new(classroom, 33, 'acs')
-puts "Classroom Label: #{classroom.label}"
-puts "Classroom Students: #{classroom.students.map(&:name).join(', ')}"
-puts "Student1 Classroom: #{student1.classroom&.label}"
-puts "Student2 Classroom: #{student2.classroom&.label}"
-puts "Student3 Classroom: #{student3.classroom&.label}"
-book1 = Book.new('The Great Gatsby', 'F. Scott Fitzgerald')
-person1 = Person.new(22, 'Maximilianus')
-rental1 = Rental.new('2023-08-03', book1, person1)
-puts rental1.person
-# Add the rental to the book's rentals and person's rentals
-book1.add_rental(rental1, person1)
-person1.add_rental(rental1, book1)
-puts "Rentals for #{book1.title}:"
-book1.rentals.each do |rental|
-  puts "#{rental.date}, Rented by: #{rental.person.name}"
+require_relative 'app'
+
+def main
+  books = []
+  people = []
+
+  loop do
+    puts "\nSelect an option:"
+    puts '1. List all books'
+    puts '2. List all people'
+    puts '3. Create a person'
+    puts '4. Create a book'
+    puts '5. Create a rental'
+    puts '6. List rentals for a person'
+    puts '7. Quit'
+
+    choice = gets.chomp.to_i
+
+    case choice
+    when 1
+      list_books(books)
+    when 2
+      list_people(people)
+    when 3
+      person = create_person
+      people << person
+      puts "Person created: #{person.name}"
+    when 4
+      book = create_book
+      books << book
+      puts "Book created: #{book.title}"
+    when 5
+      rental = create_rental(books, people)
+      rental.person.add_rental(rental)
+      rental.book.add_rental(rental)
+      puts "Rental created for #{rental.person.name} - #{rental.book.title}"
+    when 6
+      puts 'Select a person by entering their number:'
+      list_people(people)
+      person_index = gets.chomp.to_i - 1
+      selected_person = people[person_index]
+      list_rentals_for_person(selected_person)
+    when 7
+      puts 'Goodbye!'
+      break
+    else
+      puts 'Invalid choice. Please select a valid option.'
+    end
+  end
 end
-puts "Rentals for #{person1.name}:"
-person1.rentals.each do |rental|
-  puts "#{rental.date}, Book: #{rental.book.title}"
-end
+
+main if __FILE__ == $PROGRAM_NAME
