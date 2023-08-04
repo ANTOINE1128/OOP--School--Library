@@ -32,9 +32,13 @@ puts "Student3 Classroom: #{student3.classroom&.label}"
 book1 = Book.new('The Great Gatsby', 'F. Scott Fitzgerald')
 person1 = Person.new(22, 'Maximilianus')
 rental1 = Rental.new('2023-08-03', book1, person1)
+puts rental1.person
+
+
+
 # Add the rental to the book's rentals and person's rentals
-book1.add_rental(rental1)
-person1.add_rental(rental1)
+book1.add_rental(rental1, person1)
+person1.add_rental(rental1, book1)
 puts "Rentals for #{book1.title}:"
 book1.rentals.each do |rental|
   puts "#{rental.date}, Rented by: #{rental.person.name}"
