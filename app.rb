@@ -2,9 +2,7 @@ require_relative 'book'
 require_relative 'person'
 require_relative 'student'
 require_relative 'rental'
-# require_relative 'classroom'
 require_relative 'teacher'
-# require 'pry'
 
 class App
   attr_accessor :books, :persons, :rentals
