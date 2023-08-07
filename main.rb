@@ -2,7 +2,7 @@ require_relative 'app'
 require_relative 'user_input_helper'
 
 class Main
-  includes UserInputHelper
+  include UserInputHelper
 
   def initialize
     @app = App.new

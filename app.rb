@@ -89,51 +89,58 @@ class App
     end
     puts '🎉 Person added successfully.'
   end
-end
 
-# Create a book
-def create_a_book
-  puts 'Title'
-  book_title = gets.chomp
-  puts 'Author'
-  book_author = gets.chomp
-  book = Book.new(title: book_title, author: book_author)
-  @books.push(book)
-  puts '🎉 Book added successfully.'
-end
-
-# Create a rental
-def create_a_rental
-  puts 'Select a book from the following list by number'
-  @books.each_with_index do |book, index|
-    puts "#{index}) Title: #{book.title}, Author: #{book.author}"
+  # Create a book
+  def create_a_book
+    puts 'Title'
+    book_title = gets.chomp
+    puts 'Author'
+    book_author = gets.chomp
+    book = Book.new(title: book_title, author: book_author)
+    @books.push(book)
+    puts '🎉 Book added successfully.'
   end
-  book_index = gets.chomp.to_i
-  selected_book = @books[book_index]
-  puts 'Select a person from the following list by number (not ID)'
-  @persons.each_with_index do |person, index|
-    puts "#{index}) Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-  end
-  person_index = gets.chomp.to_i
-  selected_person = @persons[person_index]
-  puts 'Enter Rental Date (yyyy-mm-dd)'
-  date = gets.chomp
-  rental = Rental.new(date, selected_book, selected_person)
-  @rentals.push(rental)
-  puts '🔑 Rental added successfully'
-end
 
-# List all rentals for a given person id.
-def list_rentals
-  puts 'ID of person'
-  input_person_id = gets.chomp.to_i
-  puts 'Rentals'
-  @rentals.each do |rental|
-    if rental.person.id == input_person_id
-      puts "Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author} 🤝"
+  # Create a rental
+  def create_a_rental
+    puts 'Select a book from the following list by number'
+    @books.each_with_index do |book, index|
+      puts "#{index}) Title: #{book.title}, Author: #{book.author}"
+    end
+    book_index = gets.chomp.to_i
+    selected_book = @books[book_index]
+    puts 'Select a person from the following list by number (not ID)'
+    @persons.each_with_index do |person, index|
+      puts "#{index}) Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
+    person_index = gets.chomp.to_i
+    selected_person = @persons[person_index]
+    puts 'Enter Rental Date (yyyy-mm-dd)'
+    date = gets.chomp
+    rental = Rental.new(date, selected_book, selected_person)
+    @rentals.push(rental)
+    puts '🔑 Rental added successfully'
+  end
+
+  # List all rentals for a given person id.
+  def list_rentals
+    puts 'ID of person'
+    input_person_id = gets.chomp.to_i
+    puts 'Rentals'
+    @rentals.each do |rental|
+      if rental.person.id == input_person_id
+        puts "Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author} 🤝"
+      end
     end
   end
 end
+
+
+
+
+
+
+
 
 # app1 = App.new
 # # puts app1.create_person_value(2, 34, 'charles')
