@@ -134,7 +134,7 @@ class App
     end
   end
 end
-<<<<<<< HEAD
+
 
 
 
@@ -147,5 +147,4 @@ end
 # # puts app1.create_person_value(2, 34, 'charles')
 # app1.create_teacher(34, 'kids', 'sa')
 # app1.persons.each { |n| puts "#{n.name}" }
-=======
->>>>>>> 951d5f194d4266d1346982cb7f7c31bb4d77e121
+
