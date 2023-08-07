@@ -44,7 +44,21 @@ class App
     create_person_value(is_student, age, person_name)
   end
 
-  def create_person_value(person, age, person_name)
+  def create_student(age, name)
+    student = Student.new(age: age, name: name)
+    populate_array(@persons, student)
+  end
+
+  def populate_array(array, content)
+    array.push(content)
+  end
+
+  def create_teacher(age, specialization, name)
+    teacher = Teacher.new(age: age, specialization: specialization, name: name)
+    populate_array(@persons, teacher)
+  end
+
+  def create_person_value(person, age, name)
     case person
     when 1
       puts 'Has parent permission? [Y/N]'
@@ -52,16 +66,14 @@ class App
       if response == 'n'
         puts 'Access denied'
       elsif response == 'y'
-        student = Student.new(age: age, name: person_name)
-        @persons.push(student)
+        create_student(age, name)
       else
         puts 'Out of range'
       end
     when 2
       puts 'Specialization'
       specialization = gets.chomp
-      teacher = Teacher.new(age: age, specialization: specialization, name: person_name)
-      @persons.push(teacher)
+      create_teacher(age, specialization, name)
     end
     puts '🎉 Person added successfully.'
   end
