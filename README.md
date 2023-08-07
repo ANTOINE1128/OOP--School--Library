@@ -100,6 +100,11 @@ In the project directory, you can run:
 - GitHub: [@ANTOINE1128](https://github.com/ANTOINE1128)
 - LinkedIn: [Antoine (Tony) Makdessy](https://www.linkedin.com/in/antoine-makdessy/)
 
+👤 **Charles Andrews**
+
+- GitHub: [@forLoop94](https://github.com/forLoop94)
+- LinkedIn: [andrewscharlesuwem](https://www.linkedin.com/in/andrewscharlesuwem/)
+
 
 
 
