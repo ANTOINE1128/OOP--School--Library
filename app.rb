@@ -41,17 +41,21 @@ class App
     puts 'Name'
     person_name = gets.chomp
 
-    case is_student
+    create_person_value(is_student, age, person_name)
+  end
+
+  def create_person_value(person, age, person_name)
+    case person
     when 1
       puts 'Has parent permission? [Y/N]'
       response = gets.chomp.downcase
       if response == 'n'
-        puts "Access denied"
+        puts 'Access denied'
       elsif response == 'y'
         student = Student.new(age: age, name: person_name)
         @persons.push(student)
       else
-        puts "Out of range"
+        puts 'Out of range'
       end
     when 2
       puts 'Specialization'
