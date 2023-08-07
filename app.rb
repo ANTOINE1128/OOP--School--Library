@@ -134,4 +134,3 @@ def list_rentals
     end
   end
 end
-
