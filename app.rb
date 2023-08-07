@@ -135,7 +135,3 @@ def list_rentals
   end
 end
 
-# app1 = App.new
-# # puts app1.create_person_value(2, 34, 'charles')
-# app1.create_teacher(34, 'kids', 'sa')
-# app1.persons.each { |n| puts "#{n.name}" }
