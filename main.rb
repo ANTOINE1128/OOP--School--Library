@@ -1,6 +1,9 @@
 require_relative 'app'
+require_relative 'user_input_helper'
 
 class Main
+  includes UserInputHelper
+
   def initialize
     @app = App.new
   end
@@ -43,7 +46,7 @@ class Main
     when 6
       @app.list_rentals
     else
-      puts '👋 Sorry to see you leaving..'
+      get_user_input('👋 Sorry to see you leaving..')
     end
   end
 end
