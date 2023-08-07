@@ -44,9 +44,15 @@ class App
     case is_student
     when 1
       puts 'Has parent permission? [Y/N]'
-      gets.chomp.downcase
-      student = Student.new(age: age, name: person_name)
-      @persons.push(student)
+      response = gets.chomp.downcase
+      if response == 'n'
+        puts "Access denied"
+      elsif response == 'y'
+        student = Student.new(age: age, name: person_name)
+        @persons.push(student)
+      else
+        puts "Out of range"
+      end
     when 2
       puts 'Specialization'
       specialization = gets.chomp
