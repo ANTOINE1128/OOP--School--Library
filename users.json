@@ -1,0 +1,10 @@
+{"persons":["#<Student:0x000002344ed986c0>"],"books":[],"rentals":[],"permissions":{"persons":"write","books":"write","rentals":"write"}}
+{"persons":["#<Student:0x000002344ed986c0>"],"books":[],"rentals":[],"permissions":{"persons":"write","books":"write","rentals":"write"}}
+{"persons":["#<Student:0x000002344ed986c0>"],"books":[],"rentals":[],"permissions":{"persons":"write","books":"write","rentals":"write"}}
+{"persons":[],"books":[],"rentals":[],"permissions":{"persons":"write","books":"write","rentals":"write"}}
+{"persons":[],"books":[],"rentals":[],"permissions":{"persons":"write","books":"write","rentals":"write"}}
+{"persons":["#<Student:0x0000010c31447ee0>"],"books":[],"rentals":[],"permissions":{"persons":"write","books":"write","rentals":"write"}}
+{"persons":["#<Student:0x0000010c31447ee0>"],"books":[],"rentals":[],"permissions":{"persons":"write","books":"write","rentals":"write"}}
+{"persons":["#<Student:0x0000010c31447ee0>"],"books":[],"rentals":[],"permissions":{"persons":"write","books":"write","rentals":"write"}}
+{"persons":["#<Student:0x0000010c31447ee0>"],"books":["#<Book:0x0000010c314adf38>"],"rentals":[],"permissions":{"persons":"write","books":"write","rentals":"write"}}
+{"persons":["#<Student:0x0000010c31447ee0>"],"books":["#<Book:0x0000010c314adf38>"],"rentals":[],"permissions":{"persons":"write","books":"write","rentals":"write"}}

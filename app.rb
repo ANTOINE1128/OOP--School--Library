@@ -4,16 +4,30 @@ require_relative 'student'
 require_relative 'rental'
 require_relative 'teacher'
 require_relative 'user_input_helper'
+require 'json'
 
 class App
-  attr_accessor :books, :persons, :rentals
+  attr_accessor :books, :persons, :rentals, :permissions
 
   include UserInputHelper
 
-  def initialize
+  def initialize(*_args)
     @books = []
     @persons = []
     @rentals = []
+    @permissions = App.permissions_from_template
+  end
+
+  def self.permissions_from_template
+    file = File.read 'user_permissions_template.json'
+    JSON.parse(file, symbolize_names: true)
+  end
+
+  def save
+    self_json = { persons: @persons, books: @books, rentals: @rentals, permissions: @permissions }.to_json
+    open('users.json', 'a') do |file|
+      file.puts self_json
+    end
   end
 
   # List all books.

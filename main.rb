@@ -1,5 +1,7 @@
 require_relative 'app'
 require_relative 'user_input_helper'
+require 'json'
+
 
 class Main
   include UserInputHelper
@@ -15,6 +17,7 @@ class Main
       break if choice == 7
 
       choose_a_number(choice)
+      @app.save
     end
   end
 
@@ -39,10 +42,13 @@ class Main
       @app.list_people
     when 3
       @app.create_a_person
+      @app.save # Add this line to save the data after creating a person
     when 4
       @app.create_a_book
+      @app.save # Add this line to save the data after creating a book
     when 5
       @app.create_a_rental
+      @app.save # Add this line to save the data after creating a rental
     when 6
       @app.list_rentals
     else
