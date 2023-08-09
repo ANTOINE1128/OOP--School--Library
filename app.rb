@@ -17,11 +17,13 @@ class App
     @rentals = []
   end
 
-  # Save Persons data to JSON files
   def save_persons_data
-    File.write('students.json', JSON.generate(@persons.select { |person| person.instance_of?(Student) }))
+    students_data = @persons.select { |person| person.instance_of?(Student) }.map(&:to_hash)
+    teachers_data = @persons.select { |person| person.instance_of?(Teacher) }.map(&:to_hash)
 
-    File.write('teachers.json', JSON.generate(@persons.select { |person| person.instance_of?(Teacher) }))
+    File.write('students.json', JSON.generate(students_data))
+
+    File.write('teachers.json', JSON.generate(teachers_data))
   end
 
   # Load Persons data from JSON files
