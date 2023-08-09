@@ -1,27 +1,27 @@
 class Book
-  attr_accessor :title, :author, :date, :person
-  attr_reader :rentals
+  attr_accessor :id, :title, :author, :rentals
 
-  def initialize(title = 'no title', author = 'no author')
-    @id = Random.rand(100..10_000)
+  def initialize(id = Random.rand(100..10_000), title = 'no title', author = 'no author')
+    @id = id
     @title = title
     @author = author
     @rentals = []
   end
 
-  # def add_rental(person, date)
-  #   Rental.new(date, person, self)
-  # end
+  def add_rental(person, date)
+    Rental.new(date, person, self)
+  end
 
   def to_hash
     {
+      # 'id' => @id,
       'title' => @title,
-      'author' => @author
-      # "rentals" = []
+      'author' => @author,
+      # 'rentals' => @rentals.map { |rental| 'date' => rental.date }
     }
   end
 
-  def add_rental(rental)
-    @rentals << rental
-  end
+  # def add_rental(rental)
+  #   @rentals << rental
+  # end
 end

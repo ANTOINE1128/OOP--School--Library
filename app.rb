@@ -60,25 +60,25 @@ class App
     end
   end
   # Save Rentals data to JSON file
-  # def save_rentals_data
-  #   rentals_data = @rentals.map { |rental| rental.to_hash(@persons, @books) }
-  #   File.open('rentals.json', 'w') do |file|
-  #     file.write(JSON.generate(rentals_data))
-  #   end
-  # end
+  def save_rentals_data
+    rentals_data = @rentals.map { |rental| rental.to_hash(@persons, @books) }
+    File.open('rentals.json', 'w') do |file|
+      file.write(JSON.generate(rentals_data))
+    end
+  end
 
   # Load Rentals data from JSON file
-  # def load_rentals_data
-  #   if File.exist?('rentals.json')
-  #     rentals_data = JSON.parse(File.read('rentals.json'))
-  #     rentals_data.each do |rental_data|
-  #       person = @persons.find { |person| person.id == rental_data['person_id'] }
-  #       book = @books.find { |book| book.id == rental_data['book_id'] }
-  #       create_rental(rental_data['date'], book, person)
-  #     end
-  #   end
-  # end
-
+  def load_rentals_data
+    if File.exist?('rentals.json')
+      rentals_data = JSON.parse(File.read('rentals.json'))
+      rentals_data.each do |rental_data|
+        person = @persons.find { |p| p.id == rental_data['person_id'] }
+        book = @books.find { |b| b.id == rental_data['book_id'] }  # Use book_id here
+        rental = Rental.new(rental_data['date'], book, person)  # Create a new Rental object
+        @rentals.push(rental)
+      end
+    end
+  end
 
 
 
@@ -164,11 +164,13 @@ class App
       puts 'Author'
       author = gets.chomp
     end
-
-    book = Book.new(title, author)
+  
+    id = Random.rand(100..10_000)  # Generate a new ID for the book
+    book = Book.new(id, title, author)  # Pass the ID to the Book constructor
     populate_array(@books, book)
     puts '🎉 Book added successfully.'
   end
+  
 
   # Create a rental
   def create_a_rental
