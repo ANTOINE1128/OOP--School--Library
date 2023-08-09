@@ -15,18 +15,29 @@ class App
     @books = []
     @persons = []
     @rentals = []
-    @permissions = App.permissions_from_template
   end
 
-  def self.permissions_from_template
-    file = File.read 'user_permissions_template.json'
-    JSON.parse(file, symbolize_names: true)
+  # Save Persons data to JSON files
+  def save_persons_data
+    File.write('students.json', JSON.generate(@persons.select { |person| person.instance_of?(Student) }))
+
+    File.write('teachers.json', JSON.generate(@persons.select { |person| person.instance_of?(Teacher) }))
   end
 
-  def save
-    self_json = { persons: @persons, books: @books, rentals: @rentals, permissions: @permissions }.to_json
-    open('users.json', 'a') do |file|
-      file.puts self_json
+  # Load Persons data from JSON files
+  def load_persons_data
+    if File.exist?('students.json')
+      students_data = JSON.parse(File.read('students.json'))
+      students_data.each do |student_data|
+        create_student(student_data['age'], student_data['name'])
+      end
+    end
+
+    return unless File.exist?('teachers.json')
+
+    teachers_data = JSON.parse(File.read('teachers.json'))
+    teachers_data.each do |teacher_data|
+      create_teacher(teacher_data['age'], teacher_data['specialization'], teacher_data['name'])
     end
   end
 

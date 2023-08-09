@@ -143,6 +143,6 @@ for my code reviewers for their suggestions and feedbacks .
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/kessie2862/Enumerable/blob/dev/LICENSE) licensed.
+This project is [MIT](https://github.com/Antoine1128/Enumerable/blob/dev/LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

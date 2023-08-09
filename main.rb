@@ -11,14 +11,15 @@ class Main
   end
 
   def start
+    @app.load_persons_data
     loop do
       render_choices
       choice = gets.chomp.to_i
       break if choice == 7
 
       choose_a_number(choice)
-      @app.save
     end
+    @app.save_persons_data
   end
 
   private
@@ -42,13 +43,13 @@ class Main
       @app.list_people
     when 3
       @app.create_a_person
-      @app.save # Add this line to save the data after creating a person
+
     when 4
       @app.create_a_book
-      @app.save # Add this line to save the data after creating a book
+
     when 5
       @app.create_a_rental
-      @app.save # Add this line to save the data after creating a rental
+
     when 6
       @app.list_rentals
     else
