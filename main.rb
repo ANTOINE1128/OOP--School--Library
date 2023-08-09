@@ -12,6 +12,7 @@ class Main
 
   def start
     @app.load_persons_data
+    @app.load_books_data
     loop do
       render_choices
       choice = gets.chomp.to_i
@@ -20,6 +21,7 @@ class Main
       choose_a_number(choice)
     end
     @app.save_persons_data
+    @app.save_books_data
   end
 
   private

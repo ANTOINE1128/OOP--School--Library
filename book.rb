@@ -9,14 +9,19 @@ class Book
     @rentals = []
   end
 
-  def add_rental(person, date)
-    Rental.new(date, person, self)
-  end
+  # def add_rental(person, date)
+  #   Rental.new(date, person, self)
+  # end
 
   def to_hash
     {
       'title' => @title,
       'author' => @author
+      # "rentals" = []
     }
+  end
+
+  def add_rental(rental)
+    @rentals << rental
   end
 end

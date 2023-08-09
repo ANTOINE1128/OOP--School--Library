@@ -17,6 +17,7 @@ class App
     @rentals = []
   end
 
+  # save persons data
   def save_persons_data
     students_data = @persons.select { |person| person.instance_of?(Student) }.map(&:to_hash)
     teachers_data = @persons.select { |person| person.instance_of?(Teacher) }.map(&:to_hash)
@@ -42,6 +43,44 @@ class App
       create_teacher(teacher_data['age'], teacher_data['specialization'], teacher_data['name'])
     end
   end
+
+  # Save Books data to JSON file
+  def save_books_data
+    books_data = @books.map(&:to_hash)
+    File.write('books.json', JSON.generate(books_data))
+  end
+
+  # Load Books data from JSON file
+  def load_books_data
+    return unless File.exist?('books.json')
+
+    books_data = JSON.parse(File.read('books.json'))
+    books_data.each do |book_data|
+      create_a_book(book_data['title'], book_data['author'])
+    end
+  end
+  # Save Rentals data to JSON file
+  # def save_rentals_data
+  #   rentals_data = @rentals.map { |rental| rental.to_hash(@persons, @books) }
+  #   File.open('rentals.json', 'w') do |file|
+  #     file.write(JSON.generate(rentals_data))
+  #   end
+  # end
+
+  # Load Rentals data from JSON file
+  # def load_rentals_data
+  #   if File.exist?('rentals.json')
+  #     rentals_data = JSON.parse(File.read('rentals.json'))
+  #     rentals_data.each do |rental_data|
+  #       person = @persons.find { |person| person.id == rental_data['person_id'] }
+  #       book = @books.find { |book| book.id == rental_data['book_id'] }
+  #       create_rental(rental_data['date'], book, person)
+  #     end
+  #   end
+  # end
+
+
+
 
   # List all books.
   def list_books
@@ -118,13 +157,16 @@ class App
   end
 
   # Create a book
-  def create_a_book
-    puts 'Title'
-    book_title = gets.chomp
-    puts 'Author'
-    book_author = gets.chomp
-    book = Book.new(book_title, book_author)
-    @books.push(book)
+  def create_a_book(title = nil, author = nil)
+    if title.nil? && author.nil?
+      puts 'Title'
+      title = gets.chomp
+      puts 'Author'
+      author = gets.chomp
+    end
+
+    book = Book.new(title, author)
+    populate_array(@books, book)
     puts '🎉 Book added successfully.'
   end
 
