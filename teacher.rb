@@ -15,7 +15,6 @@ class Teacher < Person
       'id' => @id,
       'name' => @name,
       'age' => @age,
-      # 'rentals' => @rentals.map { |rental| 'date' => rental.date }
     }
   end
 end
