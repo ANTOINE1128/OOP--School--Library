@@ -91,35 +91,43 @@ class App
   end
 
   # Create a book
-  def create_a_book
-    puts 'Title'
-    book_title = gets.chomp
-    puts 'Author'
-    book_author = gets.chomp
-    book = Book.new(book_title, book_author)
-    @books.push(book)
+  def create_a_book(title = nil, author = nil)
+    if title.nil? && author.nil?
+      puts 'Title'
+      title = gets.chomp
+      puts 'Author'
+      author = gets.chomp
+    end
+
+    book = Book.new(title, author)
+    populate_array(@books, book)
     puts '🎉 Book added successfully.'
   end
 
   # Create a rental
-  def create_a_rental
-    puts 'Select a book from the following list by number'
-    @books.each_with_index do |book, index|
-      puts "#{index}) Title: #{book.title}, Author: #{book.author}"
-    end
-    book_index = gets.chomp.to_i
-    selected_book = @books[book_index]
-    puts 'Select a person from the following list by number (not ID)'
-    @persons.each_with_index do |person, index|
-      puts "#{index}) Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-    end
-    person_index = gets.chomp.to_i
-    selected_person = @persons[person_index]
-    puts 'Enter Rental Date (yyyy-mm-dd)'
-    date = gets.chomp
-    rental = Rental.new(date, selected_book, selected_person)
-    @rentals.push(rental)
+  def create_a_rental(date = nil, book = nil, person = nil)
+    if date.nil? && book.nil? && person.nil?
+      puts 'Select a book from the following list by number'
+      @books.each_with_index do |book, index|
+        puts "#{index}) Title: #{book.title}, Author: #{book.author}"
+      end
+      book_index = gets.chomp.to_i
+      selected_book = @books[book_index]
+      puts 'Select a person from the following list by number (not ID)'
+      @persons.each_with_index do |person, index|
+        puts "#{index}) Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      end
+      person_index = gets.chomp.to_i
+      selected_person = @persons[person_index]
+      puts 'Enter Rental Date (yyyy-mm-dd)'
+      date = gets.chomp
+      rental = Rental.new(date, selected_book, selected_person)
+      @rentals.push(rental)
+    else
+      rental = Rental.new(date, book, person)
+      @rentals.push(rental)
     puts '🔑 Rental added successfully'
+    end
   end
 
   # List all rentals for a given person id.
