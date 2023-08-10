@@ -1,25 +1,3 @@
 [
-  {
-    "date": "sfsf",
-    "person": {
-      "id": 346,
-      "type": "Student",
-      "name": "svs",
-      "age": 23,
-      "parent_permission": true,
-      "rentals": [
 
-      ]
-    },
-    "book": {
-      "title": {
-        "title": "fsv",
-        "author": "sdfs"
-      },
-      "author": "no author",
-      "rentals": [
-
-      ]
-    }
-  }
 ]

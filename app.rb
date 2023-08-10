@@ -96,7 +96,7 @@ class App
     book_title = gets.chomp
     puts 'Author'
     book_author = gets.chomp
-    book = Book.new(title: book_title, author: book_author)
+    book = Book.new(book_title, book_author)
     @books.push(book)
     puts '🎉 Book added successfully.'
   end
