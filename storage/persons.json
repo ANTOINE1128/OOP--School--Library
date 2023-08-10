@@ -1,18 +1,16 @@
 [
   {
-    "id": 979,
+    "id": 367,
     "type": "Student",
     "name": "thr",
     "age": 12,
     "parent_permission": true,
     "rentals": [
-      {
-        "date": "sdsdsv"
-      }
+
     ]
   },
   {
-    "id": 179,
+    "id": 744,
     "type": "Teacher",
     "name": "sfgsd",
     "age": 23,
