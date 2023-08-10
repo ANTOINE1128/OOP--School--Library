@@ -2,6 +2,7 @@ require_relative 'app'
 require_relative 'user_input_helper'
 require_relative 'save_data'
 
+
 class Main
   include UserInputHelper
 
@@ -11,7 +12,6 @@ class Main
   end
 
   def start
-    @user_data.retrieve
     loop do
       render_choices
       choice = gets.chomp.to_i

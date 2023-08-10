@@ -1,25 +1,24 @@
 [
   {
-    "date": "2020-07-05",
+    "date": "sdsdsv",
     "person": {
-      "id": 763,
-      "type": "Teacher",
-      "name": "Michael",
-      "age": 34,
-      "specialization": "kids",
+      "id": 979,
+      "type": "Student",
+      "name": "thr",
+      "age": 12,
       "parent_permission": true,
       "rentals": [
         {
-          "date": "2020-07-05"
+          "date": "sdsdsv"
         }
       ]
     },
     "book": {
-      "title": "Long walk",
-      "author": "Mandela",
+      "title": "serrs",
+      "author": "rggf",
       "rentals": [
         {
-          "date": "2020-07-05"
+          "date": "sdsdsv"
         }
       ]
     }
