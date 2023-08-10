@@ -1,3 +1,33 @@
 [
+  {
+    "id": 317,
+    "type": "Student",
+    "name": "Abel",
+    "age": 12,
+    "parent_permission": true,
+    "rentals": [
 
+    ]
+  },
+  {
+    "id": 754,
+    "type": "Teacher",
+    "name": "Michael",
+    "age": 34,
+    "specialization": "kids",
+    "parent_permission": true,
+    "rentals": [
+
+    ]
+  },
+  {
+    "id": 219,
+    "type": "Student",
+    "name": "Hafiz",
+    "age": 14,
+    "parent_permission": true,
+    "rentals": [
+
+    ]
+  }
 ]

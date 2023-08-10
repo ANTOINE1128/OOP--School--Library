@@ -11,6 +11,7 @@ class Main
   end
 
   def start
+    @user_data.retrieve
     loop do
       render_choices
       choice = gets.chomp.to_i
