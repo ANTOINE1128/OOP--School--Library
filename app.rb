@@ -108,29 +108,24 @@ class App
   end
 
   # Create a rental
-  def create_a_rental(date = nil, book = nil, person = nil)
-    if date.nil? && book.nil? && person.nil?
-      puts 'Select a book from the following list by number'
-      @books.each_with_index do |book, index|
-        puts "#{index}) Title: #{book.title}, Author: #{book.author}"
-      end
-      book_index = gets.chomp.to_i
-      selected_book = @books[book_index]
-      puts 'Select a person from the following list by number (not ID)'
-      @persons.each_with_index do |person, index|
-        puts "#{index}) Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-      end
-      person_index = gets.chomp.to_i
-      selected_person = @persons[person_index]
-      puts 'Enter Rental Date (yyyy-mm-dd)'
-      date = gets.chomp
-      rental = Rental.new(date, selected_book, selected_person)
-      @rentals.push(rental)
-
-      puts '🔑 Rental added successfully'
-    else
-      rental = Rental.new(date, book, person)
-      @rentals.push(rental)
+  def create_a_rental
+    puts 'Select a book from the following list by number'
+    @books.each_with_index do |book, index|
+      puts "#{index}) Title: #{book.title}, Author: #{book.author}"
+    end
+    book_index = gets.chomp.to_i
+    selected_book = @books[book_index]
+    puts 'Select a person from the following list by number (not ID)'
+    @persons.each_with_index do |person, index|
+      puts "#{index}) Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
+    person_index = gets.chomp.to_i
+    selected_person = @persons[person_index]
+    puts 'Enter Rental Date (yyyy-mm-dd)'
+    date = gets.chomp
+    rental = Rental.new(date, selected_book, selected_person)
+    @rentals.push(rental)
+    puts '🔑 Rental added successfully'
     end
   end
 

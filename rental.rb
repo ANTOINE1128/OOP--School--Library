@@ -19,4 +19,3 @@ class Rental
     }
   end
 end
-
