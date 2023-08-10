@@ -1,0 +1,23 @@
+[
+  {
+    "id": 346,
+    "type": "Student",
+    "name": "svs",
+    "age": 23,
+    "parent_permission": true,
+    "rentals": [
+
+    ]
+  },
+  {
+    "id": 740,
+    "type": "Teacher",
+    "name": "sds",
+    "age": 4,
+    "specialization": "vs",
+    "parent_permission": true,
+    "rentals": [
+
+    ]
+  }
+]
