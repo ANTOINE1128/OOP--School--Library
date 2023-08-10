@@ -14,14 +14,8 @@ class Book
 
   def to_hash
     {
-      # 'id' => @id,
       'title' => @title,
       'author' => @author,
-      # 'rentals' => @rentals.map { |rental| 'date' => rental.date }
     }
   end
-
-  # def add_rental(rental)
-  #   @rentals << rental
-  # end
 end
