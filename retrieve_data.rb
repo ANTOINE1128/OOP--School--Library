@@ -16,7 +16,7 @@ class RetrieveData
       data.each do |data_items|
         case file
         when 'persons'
-          selectPerson?(data_items['type'], data_items)
+          select_person?(data_items['type'], data_items)
         when 'books'
           @app.create_a_book(data_items['title'], data_items['author'])
         when 'rentals'
@@ -44,7 +44,7 @@ class RetrieveData
     @app.rentals << rental
   end
 
-  def selectPerson?(person_type, details)
+  def select_person?(person_type, details)
     case person_type
     when 'Student'
       @app.create_student(details['age'], details['name'])

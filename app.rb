@@ -126,7 +126,6 @@ class App
     rental = Rental.new(date, selected_book, selected_person)
     @rentals.push(rental)
     puts '🔑 Rental added successfully'
-    end
   end
 
   # List all rentals for a given person id.
