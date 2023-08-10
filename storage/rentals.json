@@ -1,26 +1,3 @@
 [
-  {
-    "date": "sdsdsv",
-    "person": {
-      "id": 536,
-      "type": "Student",
-      "name": "thr",
-      "age": 12,
-      "parent_permission": true,
-      "rentals": [
-        {
-          "date": "sdsdsv"
-        }
-      ]
-    },
-    "book": {
-      "title": "serrs",
-      "author": "rggf",
-      "rentals": [
-        {
-          "date": "sdsdsv"
-        }
-      ]
-    }
-  }
+
 ]

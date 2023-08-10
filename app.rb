@@ -75,9 +75,9 @@ class App
     case person
     when student
       response = get_user_input('Has parent permission? [Y/N]')
-      if response == 'n'
+      if response.downcase == 'n'
         get_user_input('Access denied')
-      elsif response == 'y'
+      elsif response.downcase == 'y'
         create_student(age, name)
       else
         puts 'Out of range'
