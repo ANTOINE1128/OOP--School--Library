@@ -14,10 +14,9 @@ RSpec.describe Student do
 
   describe '#add_classroom' do
     student = Student.new(name: 'Alice', age: 20)
-    classroom = Classroom.new( 'Math')
+    classroom = Classroom.new('Math')
 
     it 'adds the student to the classroom if not already present' do
-
       student.add_classroom(classroom)
 
       expect(student.classroom.label).to eq(classroom.label)

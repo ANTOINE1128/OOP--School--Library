@@ -14,7 +14,7 @@ class Teacher < Person
     {
       'id' => @id,
       'name' => @name,
-      'age' => @age,
+      'age' => @age
     }
   end
 end

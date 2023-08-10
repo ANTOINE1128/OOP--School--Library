@@ -2,7 +2,6 @@ require_relative 'app'
 require_relative 'user_input_helper'
 require 'json'
 
-
 class Main
   include UserInputHelper
 
