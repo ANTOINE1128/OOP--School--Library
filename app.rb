@@ -97,14 +97,11 @@ class App
       title = gets.chomp
       puts 'Author'
       author = gets.chomp
-
-      book = Book.new(title, author)
-      populate_array(@books, book)
-      puts '🎉 Book added successfully.'
     end
 
     book = Book.new(title, author)
     populate_array(@books, book)
+    puts '🎉 Book added successfully.'
   end
 
   # Create a rental
