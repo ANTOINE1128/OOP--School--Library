@@ -5,17 +5,17 @@ class Rental
     @date = date
 
     @book = book
-    # book.rentals << self
+    book.rentals << self
 
     @person = person
-    # person.rentals << self
+    person.rentals << self
   end
 
-  def to_hash(persons, books)
+  def to_hash
     {
       'date' => @date,
-      'book_id' => books.index(@book),
-      'person_id' => persons.index(@person)
+      'person' => @person.to_hash,
+      'book' => @book.to_hash
     }
   end
 end

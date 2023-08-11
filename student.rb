@@ -26,4 +26,15 @@ class Student < Person
       # 'rentals' => @rentals.map { |rental| { 'date' => rental.date } }
     }
   end
+
+  def to_hash
+    {
+      'id' => @id,
+      'type' => self.class.name,
+      'name' => @name,
+      'age' => @age,
+      'parent_permission' => @parent_permission,
+      'rentals' => @rentals.map { |rental| { 'date' => rental.date } }
+    }
+  end
 end

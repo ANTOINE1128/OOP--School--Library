@@ -13,8 +13,12 @@ class Teacher < Person
   def to_hash
     {
       'id' => @id,
+      'type' => self.class.name,
       'name' => @name,
-      'age' => @age
+      'age' => @age,
+      'specialization' => @specialization,
+      'parent_permission' => @parent_permission,
+      'rentals' => @rentals.map { |rental| { 'date' => rental.date } }
     }
   end
 end

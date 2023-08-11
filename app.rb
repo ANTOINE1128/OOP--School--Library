@@ -111,9 +111,9 @@ class App
     case person
     when student
       response = get_user_input('Has parent permission? [Y/N]')
-      if response == 'n'
+      if response.downcase == 'n'
         get_user_input('Access denied')
-      elsif response == 'y'
+      elsif response.downcase == 'y'
         create_student(age, name)
       else
         puts 'Out of range'
@@ -134,9 +134,8 @@ class App
       puts 'Author'
       author = gets.chomp
     end
-
-    id = Random.rand(100..10_000) # Generate a new ID for the book
-    book = Book.new(id, title, author) # Pass the ID to the Book constructor
+    
+    book = Book.new(title, author)
     populate_array(@books, book)
     puts '🎉 Book added successfully.'
   end
