@@ -29,4 +29,12 @@ class Person < Nameable
   def of_age?
     @age && @age >= 18
   end
+
+  def to_hash
+    {
+      'id' => @id,
+      'name' => @name,
+      'age' => @age
+    }
+  end
 end

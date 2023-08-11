@@ -4,16 +4,52 @@ require_relative 'student'
 require_relative 'rental'
 require_relative 'teacher'
 require_relative 'user_input_helper'
+require 'json'
 
 class App
-  attr_accessor :books, :persons, :rentals
+  attr_accessor :books, :persons, :rentals, :permissions
 
   include UserInputHelper
 
-  def initialize
+  def initialize(*_args)
     @books = []
     @persons = []
     @rentals = []
+  end
+
+  # Save Books data to JSON file
+  def save_books_data
+    books_data = @books.map(&:to_hash)
+    File.write('books.json', JSON.generate(books_data))
+  end
+
+  # Load Books data from JSON file
+  def load_books_data
+    return unless File.exist?('books.json')
+
+    books_data = JSON.parse(File.read('books.json'))
+    books_data.each do |book_data|
+      create_a_book(book_data['title'], book_data['author'])
+    end
+  end
+
+  # Save Rentals data to JSON file
+  def save_rentals_data
+    rentals_data = @rentals.map { |rental| rental.to_hash(@persons, @books) }
+    File.write('rentals.json', JSON.generate(rentals_data))
+  end
+
+  # Load Rentals data from JSON file
+  def load_rentals_data
+    return unless File.exist?('rentals.json')
+
+    rentals_data = JSON.parse(File.read('rentals.json'))
+    rentals_data.each do |rental_data|
+      person = @persons.find { |p| p.id == rental_data['person_id'] }
+      book = @books.find { |b| b.id == rental_data['book_id'] } # Use book_id here
+      rental = Rental.new(rental_data['date'], book, person) # Create a new Rental object
+      @rentals.push(rental)
+    end
   end
 
   # List all books.
