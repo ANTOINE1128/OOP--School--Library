@@ -134,7 +134,7 @@ class App
       puts 'Author'
       author = gets.chomp
     end
-    
+
     book = Book.new(title, author)
     populate_array(@books, book)
     puts '🎉 Book added successfully.'
