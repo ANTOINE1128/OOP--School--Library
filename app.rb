@@ -75,9 +75,9 @@ class App
     case person
     when student
       response = get_user_input('Has parent permission? [Y/N]')
-      if response == 'n'
+      if response.downcase == 'n'
         get_user_input('Access denied')
-      elsif response == 'y'
+      elsif response.downcase == 'y'
         create_student(age, name)
       else
         puts 'Out of range'
@@ -91,13 +91,16 @@ class App
   end
 
   # Create a book
-  def create_a_book
-    puts 'Title'
-    book_title = gets.chomp
-    puts 'Author'
-    book_author = gets.chomp
-    book = Book.new(title: book_title, author: book_author)
-    @books.push(book)
+  def create_a_book(title = nil, author = nil)
+    if title.nil? && author.nil?
+      puts 'Title'
+      title = gets.chomp
+      puts 'Author'
+      author = gets.chomp
+    end
+
+    book = Book.new(title, author)
+    populate_array(@books, book)
     puts '🎉 Book added successfully.'
   end
 

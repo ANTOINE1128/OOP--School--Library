@@ -1,14 +1,19 @@
 require_relative 'app'
 require_relative 'user_input_helper'
+require_relative 'save_data'
+require_relative 'retrieve_data'
 
 class Main
   include UserInputHelper
 
   def initialize
     @app = App.new
+    @data = SaveData.new(@app)
+    @user_data = RetrieveData.new(@app)
   end
 
   def start
+    @user_data.retrieve
     loop do
       render_choices
       choice = gets.chomp.to_i
@@ -16,6 +21,7 @@ class Main
 
       choose_a_number(choice)
     end
+    @data.save
   end
 
   private
