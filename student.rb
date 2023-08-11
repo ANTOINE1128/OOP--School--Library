@@ -21,9 +21,9 @@ class Student < Person
     {
       'id' => @id,
       'name' => @name,
-      'age' => @age,
+      'age' => @age
       # 'parent_permission' => @parent_permission
-      # 'rentals' => @rentals.map { |rental| { 'date' => rental.date } }  
+      # 'rentals' => @rentals.map { |rental| { 'date' => rental.date } }
     }
   end
 end

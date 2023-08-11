@@ -1,19 +1,15 @@
-require_relative '../decorator'  
-require_relative '../nameable'    
+require_relative '../decorator'
+require_relative '../nameable'
+require_relative '../person'
 
 RSpec.describe Decorator do
-  class FakeNameable < Nameable
-    def correct_name
-      'John Doe'
-    end
-  end
+  person = Person.new(name: 'Bob', age: 23, parent_permission: true)
 
   describe '#correct_name' do
     it 'returns the correct name from the wrapped nameable object' do
-      fake_nameable = FakeNameable.new
-      decorator = Decorator.new(fake_nameable)
-      
-      expect(decorator.correct_name).to eq('John Doe')
+      decorator = Decorator.new(person)
+
+      expect(decorator.correct_name).to eq('Bob')
     end
   end
 end
